@@ -51,6 +51,7 @@ interface UiKitProviderProps {
 
 const UiKitProvider = ({
   apiKey,
+  authToken,
   apiRegion,
   apiEndpoint,
   userId,
@@ -95,7 +96,7 @@ const UiKitProvider = ({
 
     if (!currentIsConnected) {
       await ASCClient.login(
-        { userId, displayName },
+        { userId, displayName, authToken },
         {
           sessionWillRenewAccessToken(renewal) {
             renewal.renew();
